@@ -1,0 +1,44 @@
+.login_container {
+  background-color: rgb(173, 216, 230);
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_card {
+  background-color: white;
+  width: 200px;
+  height: 200px;
+  border-radius: 40px;
+}
+
+.logo {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign_in_container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign_in_container button {
+  padding: 10px;
+  border: none;
+  border-radius: 40px;
+  background-color: rgb(173, 216, 230);
+  color: white;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  font-size: 10px;
+  font-style: italic;
+  margin: 5px;
+}
