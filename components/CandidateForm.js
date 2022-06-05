@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
+
 function CandidateForm() {
 
-
+    const router = useRouter();
     // function takes in form data and makes api call to send email
     async function sendEmail() {
         var candidateName = document.getElementById("name").value;
@@ -21,6 +23,10 @@ function CandidateForm() {
             },
             body: JSON.stringify(data)
           })
+
+          // route back to initiate-bg-check page after email sent
+
+          router.push("/initiate-bg-check");
           
     }
     return (

@@ -1,4 +1,4 @@
-import CandidateForm from "./CandidateForm.js";
+import CandidateForm from "../../components/CandidateForm.js";
 
 export default function CandidateFormPage() {
 
