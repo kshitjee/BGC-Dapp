@@ -17,7 +17,7 @@ export default function (req, res) {
     // message data
 
     const mailData = {
-        from: '"Fred Foo" <akumar190500@gmail.com>', // sender address
+        from: '"Machis Navani" <akumar190500@gmail.com>', // sender address
         to: `${req.body.candidateEmail}`, // list of receivers
         subject: "Please Complete Your Background Check Form", // Subject line
         text: `localhost:3000/initiate-bg-check/${req.body.uuid}`// plain text body
