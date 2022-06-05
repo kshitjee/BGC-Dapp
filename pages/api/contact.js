@@ -20,8 +20,8 @@ export default function (req, res) {
         from: '"Fred Foo" <akumar190500@gmail.com>', // sender address
         to: `${req.body.candidateEmail}`, // list of receivers
         subject: "Please Complete Your Background Check Form", // Subject line
-        text: "Hello world?", // plain text body
-        html: "<b>Hello world?</b>", // html body
+        text: `localhost:3000/initiate-bg-check/${req.body.uuid}`// plain text body
+        // change this to html so we can add formatting and more professional email
     }
 
     // function call to send email logs error message incase of error

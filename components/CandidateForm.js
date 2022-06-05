@@ -8,9 +8,14 @@ function CandidateForm() {
         var candidateName = document.getElementById("name").value;
         var candidateEmail = document.getElementById("email").value;
 
+        // generate unique uuid - change f
+
+        var uuid = crypto.randomUUID();
+
         let data= {
             candidateName,
-            candidateEmail
+            candidateEmail,
+            uuid
         }
 
         // backend call -> goes to api/contact.js to send email to user
