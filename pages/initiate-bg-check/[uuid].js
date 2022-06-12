@@ -5,6 +5,9 @@ export default function BackgroudCheckPage() {
 
 
     const onSubmit = data => SendBGFormData(data);
+
+
+    // post request 
     
     async function SendBGFormData(data) {
         
