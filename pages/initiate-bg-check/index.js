@@ -6,10 +6,9 @@ export default function BGCheckPage() {
 
   // function routes to Candidate Input Page
   async function routeToFormPage() {
-    
-    router.push("/candidate_input_form");
-    
+    router.push("/email-form");
   }
+
   return (
     <div>
       <Logout />

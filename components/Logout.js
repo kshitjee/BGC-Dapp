@@ -1,10 +1,17 @@
 import { useMoralis } from "react-moralis";
+import { useRouter } from "next/router";
 
 function Logout() {
   const { logout, isAuthenticating } = useMoralis();
+  const router = useRouter();
+
+  function handleLogout() {
+    logout();
+    router.push("/");
+  }
 
   return (
-    <button onClick={() => logout()} disabled={isAuthenticating}>
+    <button onClick={handleLogout} disabled={isAuthenticating}>
       Logout
     </button>
   );
