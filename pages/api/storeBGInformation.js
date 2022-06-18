@@ -14,22 +14,24 @@ export default async function (req, res) {
 
   const candidateBackgroundInfo = Moralis.Object.extend("CandidateBGInfo");
 
-  const candidateInfo = new candidateBackgroundInfo();
-  candidateInfo.set("prefix", body.prefix);
-  candidateInfo.set("suffix", body.suffix);
-  candidateInfo.set("firstName", body.first);
-  candidateInfo.set("middleName", body.middle);
-  candidateInfo.set("lastName", body.last);
-  candidateInfo.set("email", body.email);
-  candidateInfo.set("phoneNumber", body.number);
-  candidateInfo.set("country", body.country);
-  candidateInfo.set("state", body.state);
-  candidateInfo.set("city", body.city);
-  candidateInfo.set("postalCode", body.postal[0]);
-  candidateInfo.set("address", body.address);
-  candidateInfo.set("gender", body.gender);
+  // gotta change this shit thats why its commented out
 
-  const savedInfo = await candidateInfo.save();
+  // const candidateInfo = new candidateBackgroundInfo();
+  // candidateInfo.set("prefix", body.prefix);
+  // candidateInfo.set("suffix", body.suffix);
+  // candidateInfo.set("firstName", body.first);
+  // candidateInfo.set("middleName", body.middle);
+  // candidateInfo.set("lastName", body.last);
+  // candidateInfo.set("email", body.email);
+  // candidateInfo.set("phoneNumber", body.number);
+  // candidateInfo.set("country", body.country);
+  // candidateInfo.set("state", body.state);
+  // candidateInfo.set("city", body.city);
+  // candidateInfo.set("postalCode", body.postal[0]);
+  // candidateInfo.set("address", body.address);
+  // candidateInfo.set("gender", body.gender);
+
+  // const savedInfo = await candidateInfo.save();
 
   res.status(200).json("stored in db!");
 }
