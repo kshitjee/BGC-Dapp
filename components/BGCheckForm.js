@@ -148,6 +148,8 @@ export default function BGCheckForm() {
     </section>
   );
 
+
+
   const rightArrow =
   "https://ik.imagekit.io/lrjseyuxi3m/youtube/Form/next-arrow_1pmaQTqF3.svg?updatedAt=1634410703345";
   const leftArrow =
