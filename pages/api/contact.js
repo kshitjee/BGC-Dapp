@@ -1,4 +1,23 @@
-export default function (req, res) {
+export default async function (req, res) {
+  // // store email info in moralis db
+  const Moralis = require("moralis/node");
+
+  const serverUrl = "https://kbuw5v7jxsxa.usemoralis.com:2053/server";
+  const appId = "eWgF6hJUPK14XZCfttLTsYw4yxITR3If5CLfFctR";
+  const masterKey = "r8y7zATiNFbpsCML1L5ES961mrJqwlaAV1D4C3hH";
+  await Moralis.start({ serverUrl, appId, masterKey });
+
+  const candidateEmailInfo = Moralis.Object.extend("CandidateEmailInfo");
+  const candidateEmail = new candidateEmailInfo();
+
+  candidateEmail.set("Name", req.body.candidateName);
+  candidateEmail.set("Email", req.body.candidateEmail);
+  candidateEmail.set("UUID", req.body.uuid);
+
+  await candidateEmail.save();
+
+  console.log(req.body);
+
   let nodemailer = require("nodemailer");
   // TODO: change html message and email body
 
