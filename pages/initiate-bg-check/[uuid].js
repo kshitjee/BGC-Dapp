@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 
 // dynamically routed page for candidates to fill up details
-export default function BackgroudCheckPage() {
+export default function BackgroudCheckPage(props) {
   const onSubmit = (data) => SendBGFormData(data);
 
   async function SendBGFormData(data) {
@@ -134,10 +134,33 @@ export default function BackgroudCheckPage() {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <h1>Welcome {props.name}</h1>
         <h2>User Backgrouch Check Form</h2>
         {fieldGroups[step]}
         <Navigation />
       </form>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  // MORALIS INIT
+  const Moralis = require("moralis/node");
+  const serverUrl = "https://kbuw5v7jxsxa.usemoralis.com:2053/server";
+  const appId = "eWgF6hJUPK14XZCfttLTsYw4yxITR3If5CLfFctR";
+  const masterKey = "r8y7zATiNFbpsCML1L5ES961mrJqwlaAV1D4C3hH";
+  await Moralis.start({ serverUrl, appId, masterKey });
+
+  const { index } = context.query;
+  const candidateEmailInfo = Moralis.Object.extend("CandidateEmailInfo");
+  const query = new Moralis.Query(candidateEmailInfo);
+  query.equalTo("UUID", index);
+  const candidate = await query.first({ useMasterKey: true });
+  console.log(candidate.get("Name"));
+
+  return {
+    props: {
+      name: candidate.get("Name"),
+    },
+  };
 }
