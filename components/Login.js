@@ -21,21 +21,43 @@ function Login() {
       theme: "dark",
     });
 
+    console.log(user);
+
     // handling invalid session token error
-    function handleMoralisError(err) {
-      switch (err.code) {
-        case Moralis.Error.INVALID_SESSION_TOKEN:
-          Moralis.User.logOut();
-          // If web browser, render a log in screen
-          // If Express.js, redirect the user to the log in route
-          break;
+    // function handleMoralisError(err) {
+    //   switch (err.code) {
+    //     case Moralis.Error.INVALID_SESSION_TOKEN:
+    //       Moralis.User.logOut();
+    //       // If web browser, render a log in screen
+    //       // If Express.js, redirect the user to the log in route
+    //       break;
 
-        // Other Moralis API errors that you want to explicitly handle
-      }
+    //     // Other Moralis API errors that you want to explicitly handle
+    //   }
+    // }
+
+    // api request to check if user is in db
+    const res = await fetch("/api/checkUser", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user.id),
+    });
+
+    const response = await res.json();
+
+    if (response == "NA") {
+      router.push("/create-profile");
+    } else if (response == "candidate") {
+      router.push("/canidate-profile");
+    } else if (response == "company") {
+      router.push("/initiate-bg-check");
     }
-
-    console.log("hello");
-    router.push("/initiate-bg-check");
+    // if company --> initiate-bg-check
+    // if candidate --> candidate-profile
+    // if neither --> enter info page
   }
 
   return (

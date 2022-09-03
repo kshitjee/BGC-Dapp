@@ -48,7 +48,7 @@ export async function getServerSideProps(context) {
   const query = new Moralis.Query(candidateEmailInfo);
   query.equalTo("UUID", index);
   const candidate = await query.first({ useMasterKey: true });
-
+  
   try {
     return {
       props: {
