@@ -37,7 +37,7 @@ export default async function (req, res) {
     from: '"Machis Navani" <akumar190500@gmail.com>', // sender address
     to: `${req.body.candidateEmail}`, // list of receivers
     subject: "Please Complete Your Background Check Form", // Subject line
-    text: `localhost:3000/`, // plain text body
+    text: `localhost:3000/bg-check-form/${req.body.uuid}`, // plain text body
     // change this to html so we can add formatting and more professional email
   };
 
